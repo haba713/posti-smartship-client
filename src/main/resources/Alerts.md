@@ -1,0 +1,56 @@
+# Status events
+The /alerts GET method allows you to automatically retrieve events for parcels and shipments. This information can be useful for tracking, statistics, quality measurements etc. The information this method returns contains events received from the carriers and also the timestamp indicating when the change in the event has occurred. All the events are reported and named as "alerts" in this document.
+
+- **fetchId** *(string)*
+     - Use this value as a fetchId parameter for the following call.
+- **minDelay** *(integer)*
+    - minDelay value specifies how long you have to wait (in milliseconds) before calling again.
+- **done** *(boolean)*
+     - If done is "true" then there is no more data to retrieve. If done is "false", continue by using fetchId set to the returned fetchId from the previous call.
+- **alertCode** *(string)*
+    - STATUS_PRINTED - Printed
+    - STATUS_DISPATCHING - On route
+    - STATUS_OUTFORDELIVERY - Out for delivery
+    - STATUS_DELIVERING - Arrived to pick-up location
+    - STATUS_DELIVERED - Delivered
+    - STATUS_PARTDELIVERED - Partly delivered
+    - STATUS_RETURNED - Returned
+    - STATUS_CANCELLED - Discarded
+
+    - STATUS_TRANSITION_PRINTED - The status was changed to "Printed"
+    - STATUS_TRANSITION_DISPATCHING - The status was changed to "On route"
+    - STATUS_TRANSITION_OUTFORDELIVERY - The status has changed to "Out for delivery"
+    - STATUS_TRANSITION_DELIVERING - The status was changed to "Arrived to pick-up location"
+    - STATUS_TRANSITION_DELIVERED - The status was changed to "Delivered"
+    - STATUS_TRANSITION_PARTDELIVERED - The status was changed to "Partly delivered"
+    - STATUS_TRANSITION_RETURNED - The status was changed to "Returned"
+    - STATUS_TRANSITION_CANCELLED - The status was changed to "Discarded"
+    
+- **alertTime** *(string)*
+   - Timestamp when the alert (or the carriers status/event) occurred.
+- **alertCreated** *(string)*
+   - Timestamp when Unifaun created the alert.
+- **alertInfo** *(string)*
+   - Currently fixed, always "STATUS".
+- **shipmentNo** *(string)*
+   - Shipment number.
+- **orderNo** *(string)*
+   - Order number.
+- **reference** *(string)*
+    - Shipment reference.
+- **printDate** *(string)*
+    - Date of printing.
+- **shipDate** *(string)*
+    - Date of shipping.
+- **serviceId** *(string)*
+    - Carrier service ID.
+- **partnerId** *(string)*
+    - Carrier partner ID.
+- **parcelCount** *(integer)*
+    - Number of parcels in shipment.
+- **parcelNo** *(string)*
+    - Parcel ID.
+- **returnParcelNo** *(string)*
+    - Return parcel ID.
+- **reference** *(string)
+    - Parcel reference.

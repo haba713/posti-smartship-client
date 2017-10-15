@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "fetchId":  { "type": "string" },
+    "minDelay": { "type": "number", "minimum": 0 },
+    "done":     { "type": "boolean" },
+    "shipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [ "href", "id" ],
+        "properties": {
+          "alertCode":     { "type": "string" },
+          "alertTime":     { "type": "string", "format": "date-time" },
+          "alertCreated":  { "type": "string", "format": "date-time" },
+          "alertInfo":     { "type": "string" },
+          "shipmentInfo": {
+            "type": "object",
+            "properties": {
+              "shipmentNo":   { "type": "string" },
+              "orderNo":      { "type": "string" },
+              "reference":    { "type": "string" },
+              "printDate":    { "type": "string", "format": "date-time" },
+              "shipDate":     { "type": "string", "format": "date-time" },
+              "serviceId":    { "type": "string" },
+              "partnerId":    { "type": "string" },
+              "parcelCount":  { "type": "number" },
+              "parcels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "parcelNo":       { "type": "string" },
+                    "returnParcelNo": { "type": "string" },
+                    "reference":      { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
